@@ -10,7 +10,6 @@ export const todoReducer = (state = [], action) => {
       return state.map((todo) => {
         if (todo.id === action.id) {
           todo.done = !action.done;
-          console.log(todo.done);
         }
 
         return todo;

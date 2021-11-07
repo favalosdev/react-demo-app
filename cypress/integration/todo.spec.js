@@ -21,4 +21,17 @@ describe('TODOS page', () => {
       .click()
       .should('have.class', 'complete');
   });
+
+  it('should delete a previous TODO', () => {
+    cy.visit('/todo')
+      .get('input')
+      .type('new TODO')
+      .get('button[type=submit]')
+      .click()
+      .get('.list-group > .list-group-item:first > button')
+      .first()
+      .click()
+      .get('.list-group > .list-group-item:first')
+      .should('not.exist');
+  })
 });
